@@ -26,7 +26,16 @@ $(function() {
 		$window.on('load', function() {
 			$body.removeClass('is-loading');
 		});
-
+		
+		$window.on('load', function() {
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+	
 	// Poptrox.
 		$window.on('load', function() {
 

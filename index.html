@@ -8,11 +8,22 @@
 	<head>
 		<title>RC's Portfolio</title>
 		<meta charset="utf-8" />
+		<link rel="shortcut icon" type="image/png" href="images/icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link href="assets/css/ninja-slider.css" rel="stylesheet" type="text/css" />
+    	<script src="assets/js/ninja-slider.js" type="text/javascript"></script>
+    	<script src="assets/js/lightbox.js" type="text/javascript"></script>
+    	<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130572589-1"></script>
+		<script>
+  			window.dataLayer = window.dataLayer || [];
+ 			function gtag(){dataLayer.push(arguments);}
+  			gtag('js', new Date());
+  			gtag('config', 'UA-130572589-1');
+		</script>
 	</head>
 	<body>
-
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -44,16 +55,64 @@
 							<li><a href="mailto:richard85014@hotmail.com" class="icon style2 fa-envelope-o" target="_blank"><span class="label">Email</span></a></li>
 						</ul>
 					</header>
+
+<!--start-->
+    <div style="display:none;">
+        <div id="ninja-slider1">
+            <div class="slider-inner">
+                <ul>
+                    <li>
+                        <a class="ns-img" href="images/fulls/FS/a.jpg"></a>
+                        <div class="caption">
+                            <h3>Fluid Simulation</h3>
+                            <p>Rendering with marching cubes.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="ns-img" href="images/fulls/360/a.jpg"></a>
+                        <div class="caption">
+                            <h3>Caption 2</h3>
+                            <p></p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ns-img" style="background-image:url(img/b.jpg);"></span>
+                        <div class="caption">
+                            <h3>Caption 3</h3>
+                            <p></p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="ns-img" href="img/c.jpg"></a>
+                        <div class="caption">
+                            <h3>Caption 4</h3>
+                            <p></p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="ns-img" href="img/d.jpg"></a>
+                        <div class="caption">
+                            <h3>Caption 5</h3>
+                            <p></p>
+                        </div>
+                    </li>
+                </ul>
+                <div id="fsBtn" class="fs-icon" title="Close"></div>
+            </div>
+        </div>
+    </div>
+
 				<!-- Main -->
 					<section >
 
 						<!-- Thumbnails -->
 							<section class="thumbnails">
-								<div>
-									<a href="https://github.com/chien1219/simple-sph-simulation" target="_blank">
-										<img src="images/thumbs/FluidSimulation.jpg" alt="" />
+									<div>
+									<a>
+										<img src="images/thumbs/FluidSimulation.jpg" onclick="lightbox(0)"/>
 										<h3>Fluid Simulation with Interactor in marching-cube</h3>
 									</a>
+
 									<a href="https://github.com/chien1219/EE-RK4" target="_blank">
 										<img src="images/thumbs/EERK4.jpg" alt="" />
 										<h3>Net interaction simulation by Explicit Euler and RK4</h3>
@@ -107,20 +166,16 @@
 									</a>
 								</div>
 							</section>
-
 					</section>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p>&copy; RC. All rights reserved.</p>
-					</footer>
-
-			</div>
+ 
+			<!-- Footer -->
+			<footer id="footer">
+				<p>&copy; RC. All rights reserved.</p>
+			</footer>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.poptrox.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
-
 	</body>
 </html>
