@@ -1,6 +1,6 @@
  function lightbox(idx) {
     //show the slider's wrapper: this is required when the transitionType has been set to "slide" in the ninja-slider.js
-    var ninjaSldr = document.getElementById("ninja-slider1");
+    var ninjaSldr = document.getElementById("ninja-slider");
     ninjaSldr.parentNode.style.display = "block";
     nslider.init(idx);
     var fsBtn = document.getElementById("fsBtn");
