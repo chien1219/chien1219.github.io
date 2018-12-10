@@ -11,7 +11,7 @@ $(document).ready(function() {
 		'overlayOpacity'	: 0.8,
 	});
 
-	$("a[rel=FS]").fancybox({
+	$("a[rel=EERK4]").fancybox({
 		'transitionIn'		: 'elastic',
 		'transitionOut'		: 'elastic',
 		'padding'			: '0',
@@ -22,7 +22,7 @@ $(document).ready(function() {
 		'overlayOpacity'	: 0.8
 	});
 
-	$("a[rel=FS]").fancybox({
+	$("a[rel=360]").fancybox({
 		'transitionIn'		: 'elastic',
 		'transitionOut'		: 'elastic',
 		'padding'			: '0',
@@ -32,7 +32,7 @@ $(document).ready(function() {
 		'overlayColor'		: '#000',
 		'overlayOpacity'	: 0.8
 	});
-	$("a[rel=FS]").fancybox({
+	$("a[rel=DNA]").fancybox({
 		'transitionIn'		: 'elastic',
 		'transitionOut'		: 'elastic',
 		'padding'			: '0',
