@@ -1,0 +1,46 @@
+$(document).ready(function() {
+	
+	$("a[rel=FS]").fancybox({
+		'transitionIn'		: 'elastic',
+		'transitionOut'		: 'elastic',
+		'padding'			: '0',
+		'width'				: '75%',
+		'height'			: '75%',
+		'titlePosition'		: 'outside',
+		'overlayColor'		: '#000',
+		'overlayOpacity'	: 0.8,
+	});
+
+	$("a[rel=FS]").fancybox({
+		'transitionIn'		: 'elastic',
+		'transitionOut'		: 'elastic',
+		'padding'			: '0',
+		'width'				: '75%',
+		'height'			: '75%',
+		'titlePosition'		: 'outside',
+		'overlayColor'		: '#000',
+		'overlayOpacity'	: 0.8
+	});
+
+	$("a[rel=FS]").fancybox({
+		'transitionIn'		: 'elastic',
+		'transitionOut'		: 'elastic',
+		'padding'			: '0',
+		'width'				: '75%',
+		'height'			: '75%',
+		'titlePosition'		: 'outside',
+		'overlayColor'		: '#000',
+		'overlayOpacity'	: 0.8
+	});
+	$("a[rel=FS]").fancybox({
+		'transitionIn'		: 'elastic',
+		'transitionOut'		: 'elastic',
+		'padding'			: '0',
+		'width'				: '75%',
+		'height'			: '75%',
+		'titlePosition'		: 'outside',
+		'overlayColor'		: '#000',
+		'overlayOpacity'	: 0.8
+	});
+
+});
