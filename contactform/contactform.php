@@ -36,8 +36,6 @@
     curl_setopt($ch, CURLOPT_URL,"http://104.32.144.237/contactme/contactme.php");
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     
     if (curl_exec($ch)) 
         print("OK");
