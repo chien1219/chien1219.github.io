@@ -1,3 +1,4 @@
+<!--THIS FILE IS UNUSED NOW-->
 <?php
 
     $name = $_POST['name'];

@@ -229,9 +229,10 @@ nav ul li a {
 
 #header {
   background: url("../images/home-bg.jpg") repeat scroll center center / cover;
-  background-size: cover;
   height: 100vh;
   width: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 
@@ -301,9 +302,10 @@ nav ul li a {
 }
 
 #about .about-descr .p-heading {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Bad Script';
+  font-weight: 600;
   font-size: 30px;
-  line-height: 35px;
+  line-height: 43px;
   margin-left: 7%;
   text-align: left;
 }
@@ -314,7 +316,10 @@ nav ul li a {
 }
 
 #about .about-descr .button {
+  font-family: 'Marck Script';
   margin-left: 7%;
+  font-size: large;
+  font-weight: 500;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -340,7 +345,7 @@ nav ul li a {
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 20px;
+	margin-top: 3%;
   cursor: pointer;
   border-radius: 8px;
 }

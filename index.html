@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">  
-  
-<!-- Php -->
-<?php
-  require_once '/flow.php';
-?>
 
 <head>
   <!-- meta -->
@@ -16,7 +11,7 @@
   <meta content="" name="description">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Bad+Script:400,400i,700,700i,900,900i|Marck+Script" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -69,16 +64,16 @@
 
   <!-- start section header -->
   <div id="header" class="home">
-    <div class="container">
+    <div class="ml-4 container">
       <div class="header-content wow slideInLeft">
         <h1>I'm Richard Chien</h1>
         <p><span class="typed"></span></p>
 
         <ul class="list-unstyled list-social">
-          <li><a href="https://github.com/chien1219"><i class="ion-social-github"></i></a></li>
-          <li><a href="https://www.linkedin.com/in/lichechien"><i class="ion-social-linkedin"></i></a></li>
-          <li><a href="https://www.facebook.com/lichechien"><i class="ion-social-facebook"></i></a></li>
-          <li><a href="https://instagram.com/chien_rc"><i class="ion-social-instagram"></i></a></li>
+          <li><a target="_blank" href="https://github.com/chien1219"><i class="ion-social-github"></i></a></li>
+          <li><a target="_blank" href="https://www.linkedin.com/in/lichechien"><i class="ion-social-linkedin"></i></a></li>
+          <li><a target="_blank" href="https://www.facebook.com/lichechien"><i class="ion-social-facebook"></i></a></li>
+          <li><a target="_blank" href="https://instagram.com/chien_rc"><i class="ion-social-instagram"></i></a></li>
         </ul>
       </div>
     </div>
@@ -101,10 +96,11 @@
 
         <div class="col-lg-8">
           <div class="about-descr wow fadeInRight">
-            <p class="p-heading">"You may say I'm a dreamer</br>
+            <p class="p-heading" id="testzone">"You may say I'm a dreamer</br>
               But I'm not the only one.</br>
               I hope someday you will join us</br>
-              And the world will be as one."</p>
+              And the world will be as one."</br>
+              － John Lennon "Imagine"</p>
             <!--<p class="separator">Activision Blizzard</br>Los Angeles</br></br>MS, Computer Science</br>University of Southern California</br>Los Angeles</p>-->
             <a href="public/resume/Resume.pdf" class="sim-btn btn-hover-new button" data-text="View CV" target="_blank"><span>View CV</span></a>
           </div>
@@ -592,7 +588,7 @@
             <form action="" method="post" role="form" class="contactForm">
               <div class="row">
 
-                <div id="sendmessage">Your message has been sent, I will reply asap, thank you!</div>
+                <div id="sendmessage">Your message has been sent, thank you!</div>
                 <div id="errormessage"></div>
 
                 <div class="col-lg-6">
@@ -643,10 +639,10 @@
       <div class="socials-media text-center">
 
         <ul class="list-unstyled list-social">
-          <li><a href="https://github.com/chien1219"><i class="ion-social-github"></i></a></li>
-          <li><a href="https://www.linkedin.com/in/lichechien"><i class="ion-social-linkedin"></i></a></li>
-          <li><a href="https://www.facebook.com/lichechien"><i class="ion-social-facebook"></i></a></li>
-          <li><a href="https://instagram.com/chien_rc"><i class="ion-social-instagram"></i></a></li>
+          <li><a target="_blank" href="https://github.com/chien1219"><i class="ion-social-github"></i></a></li>
+          <li><a target="_blank" href="https://www.linkedin.com/in/lichechien"><i class="ion-social-linkedin"></i></a></li>
+          <li><a target="_blank" href="https://www.facebook.com/lichechien"><i class="ion-social-facebook"></i></a></li>
+          <li><a target="_blank" href="https://instagram.com/chien_rc"><i class="ion-social-instagram"></i></a></li>
         </ul>
 
       </div>
@@ -667,7 +663,22 @@
   <script src="lib/fancybox/js/myfancybox.js"></script>
 
   <!-- Contact Form JavaScript File -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>  
   <script src="contactform/contactform.js"></script>
+
+  <!-- Flow Dumping JavaScript File -->
+  <!--<script src="lib/flow/flow.js"></script>-->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130572589-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-130572589-1');
+  </script>
+
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
