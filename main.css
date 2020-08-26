@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+	background-color: #000;
+	color: #fff;
+	overscroll-behavior: none;
+}
+
+a {
+	color: #ffffff;
+	pointer-events: auto;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ffffff;
+	text-decoration: solid;
+}
+
+canvas {
+	display: block;
+}
+
+#info {
+	position: absolute;
+	top: 80%;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 1;
+	font-size: 40px;
+	font-family: 'Poiret One';
+	letter-spacing: 5px;
+	margin-top: 0;
+	margin-bottom: 30px;
+	text-transform: capitalize;
+	color: #fff;
+	font-weight: 300;
+}
