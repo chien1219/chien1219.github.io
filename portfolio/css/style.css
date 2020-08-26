@@ -636,13 +636,13 @@ nav ul li a {
 
 #contact {
   height: auto;
+  text-align: start;
   width: 100%;
 }
 
 .contact-details {
   list-style: circle;
   margin: 0;
-  padding-left: 20px;
 }
 
 .contact-details li {
