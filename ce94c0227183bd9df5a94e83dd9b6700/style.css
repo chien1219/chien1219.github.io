@@ -1,0 +1,119 @@
+body {
+	margin: 0;
+	background-color: #fff;
+}
+
+.fontspec {
+    font-weight: bold;
+    color: #0f40be;
+    font-family: 'Rozha One', serif;
+}
+
+.center {
+    text-align: center;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*  Header
+/*-----------------------------------------------------------------------------------*/
+#header {
+    margin-left: 5.7vw;
+    margin-top: 2.3vh;
+    font-size: 4vh;
+}
+
+#line {
+    width: 100%;
+    border-bottom: 1px solid #505050;
+    position: absolute;
+    margin-top: 0.5em;
+}
+
+#main-display {
+    margin-top: 3.5vh;
+    margin-left: 5.7vw;
+}
+
+/* 待改 */
+#nav {
+    font-size: 9px;
+    margin-bottom: 3.5vh;
+}
+
+#nav span {
+    font-weight: bold;
+    letter-spacing: 0ch;
+    margin-right: 1vw;
+}
+
+#bg-img {
+    height: 54vh;
+    width: 85vw;
+    background-color: hotpink;
+}
+
+/* 待改 */
+#parallax {
+    width: 100%;
+    height: 100%;
+    background-image: url("https://csci571.com/hw/hw3/images/Cutlery.png");
+     
+    /* Create parallax scrolling effect */
+    background-repeat: no-repeat;
+    background-position: 50px -50px;
+    background-size: 87% auto;
+    background-attachment: fixed;
+    position: relative;
+    overflow: auto;
+}
+
+#words-in-picture {
+    margin-left: 5%;
+    margin-top: 5.4%;
+    font-size: 42px;
+    width: 33%;
+    max-height: 25%; 
+    line-height: 1.4em;
+}
+
+/* 字體待改 */
+#button {
+    background-color: white;
+    margin-top: 6%;
+    margin-left: 5%;
+    width: 12%;
+    height: 9%;
+    border: none;
+    font-family: 'Roboto Mono';
+    letter-spacing: -1px;
+}
+
+#header2 {
+    font-size: 25px;
+    margin-top: 4.7vh;
+    margin-bottom: 3vh;
+}
+
+#thumbnails {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-gap: 4%;
+    margin: auto;
+    width: 89%;
+}
+
+.thumbnail .img-background {
+    background-color: #a6e1e8;
+    width: 100%;
+}
+
+.thumbnail img {
+    background-size: contain;
+    width: 96%;
+}
+
+.thumbnail .caption {
+    margin-top: 4.8vh;
+    margin-bottom: 4.5vh;
+    text-align: center;
+}
