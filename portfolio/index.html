@@ -7,11 +7,14 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Richard Chien</title>
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+  <meta name="author" content="Richard Chien">
+  <meta name="version" content="1.2">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Bad+Script:400,400i,700,700i,900,900i|Marck+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bad+Script:400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
+
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -61,8 +64,26 @@
   </nav>
   <!-- End section navbar -->
 
-
   <!-- start section header -->
+  <!-- Background Video Header Used when screen width > 1000 -->
+  <div class="video-container">
+    <div class="ml-5 container">
+      <div class="header-content wow slideInLeft">
+         <h1>I'm Richard Chien</h1>
+        <p><span class="typed"></span></p>
+  
+        <ul class="list-unstyled list-social">
+          <li><a target="_blank" href="https://github.com/chien1219"><i class="ion-social-github"></i></a></li>
+          <li><a target="_blank" href="https://www.linkedin.com/in/lichechien"><i class="ion-social-linkedin"></i></a></li>
+          <li><a target="_blank" href="https://www.facebook.com/lichechien"><i class="ion-social-facebook"></i></a></li>
+          <li><a target="_blank" href="https://instagram.com/chien_rc"><i class="ion-social-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <video autoplay loop muted playsinline src="images/home-bg.mp4" class="fillWidth"></video>
+  </div>
+
+  <!-- Background Image Header Used when screen width < 1000 -->
   <div id="header" class="home">
     <div class="ml-5 container">
       <div class="header-content wow slideInLeft">
@@ -96,12 +117,13 @@
 
         <div class="col-lg-8">
           <div class="about-descr wow fadeInRight">
-            <p class="p-heading">Richard Chien, studying M.S. degree in Computer Science at University of Southern California in class of 2021.</br>
-              Fond of movies, traveling, and photographing.</br>
-              Experienced Software Engineer with a demonstrated works in the program development and entertainment industry. </br>
-              Skilled in Computer Graphic and Animation, Simulation and Rendering, Mobile and Web Developing.</br></p>
-            <!--<p class="separator">Activision Blizzard</br>Los Angeles</br></br>MS, Computer Science</br>University of Southern California</br>Los Angeles</p>-->
-            <a href="public/resume/Resume.pdf" class="sim-btn btn-hover-new button" data-text="View CV" target="_blank"><span>View CV</span></a>
+            <p class="p-heading">Richard Chien, studying M.S. degree in Computer Science at University of Southern California in class of 2021.<br>
+              Fond of movies, traveling, and photographing.<br>
+              Experienced Software Engineer with a demonstrated works in the program development and entertainment industry. <br>
+              Skilled in Computer Graphic and Animation, Simulation and Rendering, Mobile and Web Developing.<br></p>
+            <!--<p class="separator">Activision Blizzard<br>Los Angeles<br><br>MS, Computer Science<br>University of Southern California<br>Los Angeles</p>-->
+            <a data-fancybox="ACP" href="public/resume/Resume.pdf" class="sim-btn btn-hover-new button" data-text="Resume" ><span>Resume</span></a>
+            <a data-fancybox="Resume" href="images/fulls/MayaACP/Certification.pdf" class="sim-btn btn-hover-new button" data-text="Cerfification" ><span>Cerfification</span></a>
           </div>
         </div>
       </div>
@@ -179,15 +201,17 @@
 
           <div class="portfolio-container" id="portfolio-container">
 
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail maya">
-              <a data-fancybox="ACP" href="images/fulls/MayaACP/Certification.pdf" data-caption="Issued Date: 7/13/2019">
-                <img src="images/thumbs/MayaLogo.png" />
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
+              <a data-fancybox="MBFS" href="https://youtu.be/IvxwY5VEhOY" data-caption="Anatomy-based facial expression simulation using finite-volume method and blendshape-driven muscle model">
+                <img src="images/thumbs/MBFS.jpg" alt="" />
                 <div class="details">
-                  <h4>Maya</h4>
-                  <span>Autodesk Certified Professional</span>
+                  <h4>Face Simulation</h4>
+                  <span>Blendshape-driven muscled-based facial simulation using FEM</span>
                 </div>
               </a>
+              <a style="display:none" data-fancybox="MBFS" href="https://youtu.be/oX53yDeZk6k" data-caption="Anatomy-based facial expression simulation using finite-volume method and blendshape-driven muscle model" ></a>
             </div>
+
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail cowork">
               <a data-fancybox="360" href="images/fulls/360/a.jpg" data-caption="360-degree Movie Player in VR created by Unity3D" onclick="window.open('https://iflyover.tw')">
@@ -197,12 +221,12 @@
                   <span>Owned by iFlyover in VIMLab at NCHC</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="360" href="https://youtu.be/84RaZMO0dVw" data-caption="Running program under VR simulator" />
-              <a style="display:none" data-fancybox="360" href="images/fulls/360/b.jpg" data-caption="Screen Shot in high angle shot" />
-              <a style="display:none" data-fancybox="360" href="images/fulls/360/c.jpg" data-caption="Screen Shot in perspective 2 with playlist function on" />
-              <a style="display:none" data-fancybox="360" href="images/fulls/360/d.jpg" data-caption="Screen Shot in perspective 2" />
-              <a style="display:none" data-fancybox="360" href="images/fulls/360/e.jpg" data-caption="Montage" />
-              <a style="display:none" data-fancybox="360" href="images/fulls/360/f.jpg" data-caption="Montage" />
+              <a style="display:none" data-fancybox="360" href="https://youtu.be/84RaZMO0dVw" data-caption="Running program under VR simulator" ></a>
+              <a style="display:none" data-fancybox="360" href="images/fulls/360/b.jpg" data-caption="Screen Shot in high angle shot" ></a>
+              <a style="display:none" data-fancybox="360" href="images/fulls/360/c.jpg" data-caption="Screen Shot in perspective 2 with playlist function on" ></a>
+              <a style="display:none" data-fancybox="360" href="images/fulls/360/d.jpg" data-caption="Screen Shot in perspective 2" ></a>
+              <a style="display:none" data-fancybox="360" href="images/fulls/360/e.jpg" data-caption="Montage" ></a>
+              <a style="display:none" data-fancybox="360" href="images/fulls/360/f.jpg" data-caption="Montage" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
@@ -213,9 +237,9 @@
                   <span>2 IK method with 2 Skinning method</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="Skinning" href="https://youtu.be/Sx0Nvf_tqwU" data-caption="Tikhonov IK Method with Linear Blend Skinning" />
-              <a style="display:none" data-fancybox="Skinning" href="https://youtu.be/lef0-Ee7N6g" data-caption="Tikhonov IK Method with Dual Quaternion Skinning" />
-              <a style="display:none" data-fancybox="Skinning" href="images/fulls/Skinning/a.pdf" data-caption="Project Report" />
+              <a style="display:none" data-fancybox="Skinning" href="https://youtu.be/Sx0Nvf_tqwU" data-caption="Tikhonov IK Method with Linear Blend Skinning" ></a>
+              <a style="display:none" data-fancybox="Skinning" href="https://youtu.be/lef0-Ee7N6g" data-caption="Tikhonov IK Method with Dual Quaternion Skinning" ></a>
+              <a style="display:none" data-fancybox="Skinning" href="images/fulls/Skinning/a.pdf" data-caption="Project Report" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail maya">
@@ -226,16 +250,16 @@
                   <span>Prologue animation clip - SuperPanda</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/1.jpg" data-caption="Face Modeling" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/2.jpg" data-caption="Face Modeling" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/3.jpg" data-caption="Face Modeling" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/4.jpg" data-caption="Body Modeling" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/5.jpg" data-caption="Body Modeling" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/6.jpg" data-caption="Body Modeling" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/7.jpg" data-caption="Texture with UV editor" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/8.jpeg" data-caption="Environmental texture" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/9.jpeg" data-caption="Panda in motion" />
-              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/10.jpeg" data-caption="Panda with face expression" />
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/1.jpg" data-caption="Face Modeling" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/2.jpg" data-caption="Face Modeling" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/3.jpg" data-caption="Face Modeling" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/4.jpg" data-caption="Body Modeling" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/5.jpg" data-caption="Body Modeling" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/6.jpg" data-caption="Body Modeling" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/7.jpg" data-caption="Texture with UV editor" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/8.jpeg" data-caption="Environmental texture" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/9.jpeg" data-caption="Panda in motion" ></a>
+              <a style="display:none" data-fancybox="Panda" href="images/fulls/MayaWork/Panda/10.jpeg" data-caption="Panda with face expression" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
@@ -246,9 +270,9 @@
                   <span>Physically-based aurora rendering</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="Aurora" href="images/fulls/Aurora/b.jpg" data-caption="Physically-based aurora rendering using pbrt-v2 renderer with OpenEXR" />
-              <a style="display:none" data-fancybox="Aurora" href="images/fulls/Aurora/c.jpg" data-caption="Render using different color map and footprint" />
-              <a style="display:none" data-fancybox="Aurora" href="images/fulls/Aurora/a.pdf" data-caption="Project Report" />
+              <a style="display:none" data-fancybox="Aurora" href="images/fulls/Aurora/b.jpg" data-caption="Physically-based aurora rendering using pbrt-v2 renderer with OpenEXR" ></a>
+              <a style="display:none" data-fancybox="Aurora" href="images/fulls/Aurora/c.jpg" data-caption="Render using different color map and footprint" ></a>
+              <a style="display:none" data-fancybox="Aurora" href="images/fulls/Aurora/a.pdf" data-caption="Project Report" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
@@ -259,9 +283,9 @@
                   <span>Net force in Explicit Euler and RK4</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="EERK4" href="https://youtu.be/t3A0bLAGBWE" data-caption="Simulation of spring and external forces with Explicit Euler" />
-              <a style="display:none" data-fancybox="EERK4" href="images/fulls/EERK4/b.jpg" data-caption="Render Screen Shot" />
-              <a style="display:none" data-fancybox="EERK4" href="https://youtu.be/KP8GqoijKog" data-caption="Simulation of spring and external forces with RK4" />
+              <a style="display:none" data-fancybox="EERK4" href="https://youtu.be/t3A0bLAGBWE" data-caption="Simulation of spring and external forces with Explicit Euler" ></a>
+              <a style="display:none" data-fancybox="EERK4" href="images/fulls/EERK4/b.jpg" data-caption="Render Screen Shot" ></a>
+              <a style="display:none" data-fancybox="EERK4" href="https://youtu.be/KP8GqoijKog" data-caption="Simulation of spring and external forces with RK4" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
@@ -272,12 +296,12 @@
                     <span>SPH Fluid with external force from interactor</span>
                   </div>
               </a>
-              <a style="display:none" data-fancybox="FS" href="https://youtu.be/1gPbiA7sHCk" data-caption="Demo Video" />
-              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/b.jpg" data-caption="Render with Particle form" />
-              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/c.jpg" data-caption="Another size of container with marching-cube form" />
-              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/d.jpg" data-caption="A soccer ball as an interactor falling" />
-              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/e.jpg" data-caption="Water(Viscosity: 0.0894) interaction with a low density object" />
-              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/a.pdf" data-caption="Project Report" />
+              <a style="display:none" data-fancybox="FS" href="https://youtu.be/1gPbiA7sHCk" data-caption="Demo Video" ></a>
+              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/b.jpg" data-caption="Render with Particle form" ></a>
+              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/c.jpg" data-caption="Another size of container with marching-cube form" ></a>
+              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/d.jpg" data-caption="A soccer ball as an interactor falling" ></a>
+              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/e.jpg" data-caption="Water(Viscosity: 0.0894) interaction with a low density object" ></a>
+              <a style="display:none" data-fancybox="FS" href="images/fulls/FS/a.pdf" data-caption="Project Report" ></a>
                 </a>
             </div>
 
@@ -289,11 +313,11 @@
                   <span>Work Clips Collection Maya/Premier/AE</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="Clips" href="https://youtu.be/Mwo_vZkm0ZE" data-caption="Spaceship clip by flow emitter" />
-              <a style="display:none" data-fancybox="Clips" href="https://youtu.be/WIZWZuIB4yQ" data-caption="Video & Model composition, camera tracking by Adobe AE" />
-              <a style="display:none" data-fancybox="Clips" href="https://youtu.be/YZSC80dkaqc" data-caption="Boat in a storm" />
+              <a style="display:none" data-fancybox="Clips" href="https://youtu.be/Mwo_vZkm0ZE" data-caption="Spaceship clip by flow emitter" ></a>
+              <a style="display:none" data-fancybox="Clips" href="https://youtu.be/WIZWZuIB4yQ" data-caption="Video & Model composition, camera tracking by Adobe AE" ></a>
+              <a style="display:none" data-fancybox="Clips" href="https://youtu.be/YZSC80dkaqc" data-caption="Boat in a storm" ></a>
               <a style="display:none" data-fancybox="Clips" href="https://youtu.be/DHIF_nK0D78" data-caption="Video & Model composition, camera tracking by Adobe AE"></a>
-              <a style="display:none" data-fancybox="Clips" href="https://youtu.be/hnstLWtfeVM" data-caption="Blood pipe with erythrocyte flowing" />
+              <a style="display:none" data-fancybox="Clips" href="https://youtu.be/hnstLWtfeVM" data-caption="Blood pipe with erythrocyte flowing" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail maya">
@@ -304,16 +328,16 @@
                   <span>Human body & Hair modeling</span>
                 </div>
                 </a>
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/1.jpg" data-caption="Face Modeling" />
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/2.jpg" data-caption="Face Modeling" />
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/3.jpg" data-caption="Face Modeling" />
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/4.jpg" data-caption="Face Modeling" />
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/5.jpg" data-caption="Body Modeling" />
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/6.jpg" data-caption="Body Modeling" />
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/7.jpg" data-caption="Textured and applied Toon Shader" />
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/MayaRenderer.jpg" data-caption="Toon Shader rendered in Maya Renderer" />
-              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/ArnoldRenderer.jpg" data-caption="Toon Shader rendered in Arnold Renderer" />
-              <a style="display:none" data-fancybox="GirlModel" href="https://youtu.be/-tWSW7j_QtU" data-caption="Hair simulation with winds" />
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/1.jpg" data-caption="Face Modeling" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/2.jpg" data-caption="Face Modeling" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/3.jpg" data-caption="Face Modeling" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/4.jpg" data-caption="Face Modeling" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/5.jpg" data-caption="Body Modeling" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/6.jpg" data-caption="Body Modeling" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/7.jpg" data-caption="Textured and applied Toon Shader" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/MayaRenderer.jpg" data-caption="Toon Shader rendered in Maya Renderer" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="images/fulls/MayaWork/GirlModel/ArnoldRenderer.jpg" data-caption="Toon Shader rendered in Arnold Renderer" ></a>
+              <a style="display:none" data-fancybox="GirlModel" href="https://youtu.be/-tWSW7j_QtU" data-caption="Hair simulation with winds" ></a>
               </a>
             </div>
 
@@ -335,13 +359,13 @@
                   <span>Presentation and simulation of DNA in VR</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="DNA" href="https://youtu.be/U-5Xv21NlbI" data-caption="Demo Video (Platform: PC)" />
-              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/b.jpg" data-caption="User Interface" />
-              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/c.jpg" data-caption="Tutorial with narration" />
-              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/d.jpg" data-caption="Develop scene in Unity" />
-              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/e.jpg" data-caption="Develop scene in Unity" />
-              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/f.jpg" data-caption="Develop scene in Unity" />
-              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/a.pdf" data-caption="Mandarin project report" />
+              <a style="display:none" data-fancybox="DNA" href="https://youtu.be/U-5Xv21NlbI" data-caption="Demo Video (Platform: PC)" ></a>
+              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/b.jpg" data-caption="User Interface" ></a>
+              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/c.jpg" data-caption="Tutorial with narration" ></a>
+              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/d.jpg" data-caption="Develop scene in Unity" ></a>
+              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/e.jpg" data-caption="Develop scene in Unity" ></a>
+              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/f.jpg" data-caption="Develop scene in Unity" ></a>
+              <a style="display:none" data-fancybox="DNA" href="images/fulls/DNA/a.pdf" data-caption="Mandarin project report" ></a>
               </a>
             </div>
 
@@ -353,12 +377,12 @@
                   <span>Toon-Style houses and furniture modeling</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/2.jpg" data-caption="Table and chairs modeling" />
-              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/3.jpg" data-caption="House work" />
-              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/4.jpg" data-caption="House work" />
-              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/5.jpg" data-caption="Bed with several little models" />
-              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/6.jpg" data-caption="" />
-              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/7.jpg" data-caption="" />
+              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/2.jpg" data-caption="Table and chairs modeling" ></a>
+              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/3.jpg" data-caption="House work" ></a>
+              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/4.jpg" data-caption="House work" ></a>
+              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/5.jpg" data-caption="Bed with several little models" ></a>
+              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/6.jpg" data-caption="" ></a>
+              <a style="display:none" data-fancybox="House" href="images/fulls/MayaWork/House/7.jpg" data-caption="" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail mocap">
@@ -369,8 +393,8 @@
                   <span>Forward Kinematics and Time Wrapping</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="FKTW" href="https://youtu.be/3kMFgJZu6kQ" data-caption="Demo Video" />
-              <a style="display:none" data-fancybox="FKTW" href="https://youtu.be/G7ZEdgclVoY" data-caption=".amc file in running simulation" />
+              <a style="display:none" data-fancybox="FKTW" href="https://youtu.be/3kMFgJZu6kQ" data-caption="Demo Video" ></a>
+              <a style="display:none" data-fancybox="FKTW" href="https://youtu.be/G7ZEdgclVoY" data-caption=".amc file in running simulation" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail mocap">
@@ -381,9 +405,9 @@
                   <span>Keyframming Interpolation on Mocap system</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="KI" href="https://youtu.be/ypEYRXH1vCw" data-caption="Green: Non-interpolated amc clip, Red: Interpolated animation using Linear Euler between each 40 keyframes" />
-              <a style="display:none" data-fancybox="KI" href="https://youtu.be/1wn_b_3sWwI" data-caption="Green: Non-interpolated amc clip, Red: Interpolated animation using Linear Quaternion between each 40 keyframes" />
-              <a style="display:none" data-fancybox="KI" href="images/fulls/KI/a.pdf" data-caption="Comparison between different interpolation method" />
+              <a style="display:none" data-fancybox="KI" href="https://youtu.be/ypEYRXH1vCw" data-caption="Green: Non-interpolated amc clip, Red: Interpolated animation using Linear Euler between each 40 keyframes" ></a>
+              <a style="display:none" data-fancybox="KI" href="https://youtu.be/1wn_b_3sWwI" data-caption="Green: Non-interpolated amc clip, Red: Interpolated animation using Linear Quaternion between each 40 keyframes" ></a>
+              <a style="display:none" data-fancybox="KI" href="images/fulls/KI/a.pdf" data-caption="Comparison between different interpolation method" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail mocap">
@@ -395,7 +419,7 @@
                 </div>
                 <h3></h3>
               </a>
-              <a style="display:none" data-fancybox="IK" href="https://youtu.be/T_2CDm6inzE" data-caption="Demo Video" />
+              <a style="display:none" data-fancybox="IK" href="https://youtu.be/T_2CDm6inzE" data-caption="Demo Video" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
@@ -407,20 +431,8 @@
                 </div>
                 <h3></h3>
               </a>
-              <a style="display:none" data-fancybox="HS" href="images/fulls/HS/b.jpg" data-caption="Hair simulation with low gravity" />
-              <a style="display:none" data-fancybox="HS" href="images/fulls/HS/c.jpg" data-caption="Hair simulation with high gravity" />
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
-              <a data-fancybox="TM1" href="images/fulls/TM1/a.jpg" data-caption="2D/3D/Cube texture mapping scene created with openGL">
-                <img src="images/thumbs/TM1.jpg" alt="" />
-                <div class="details">
-                  <h4>OpenGL</h4>
-                  <span>2D/3D/Cube texture mapping</span>
-                </div>
-              </a>
-              <a style="display:none" data-fancybox="TM1" href="images/fulls/TM1/b.jpg" data-caption="2D/3D/Cube texture mapping scene created with openGL" />
-              <a style="display:none" data-fancybox="TM1" href="images/fulls/TM1/c.jpg" data-caption="2D/3D/Cube texture mapping scene created with openGL" />
+              <a style="display:none" data-fancybox="HS" href="images/fulls/HS/b.jpg" data-caption="Hair simulation with low gravity" ></a>
+              <a style="display:none" data-fancybox="HS" href="images/fulls/HS/c.jpg" data-caption="Hair simulation with high gravity" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
@@ -431,8 +443,8 @@
                   <span>Simulation of planar Reflection and Refraction</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="PR&F" href="images/fulls/PR&F/b.jpg" data-caption="Simulation of planar Reflection and Refraction with different coefficient" />
-              <a style="display:none" data-fancybox="PR&F" href="images/fulls/PR&F/c.jpg" data-caption="Simulation of planar Reflection and Refraction with different coefficient" />  
+              <a style="display:none" data-fancybox="PR&F" href="images/fulls/PR&F/b.jpg" data-caption="Simulation of planar Reflection and Refraction with different coefficient" ></a>
+              <a style="display:none" data-fancybox="PR&F" href="images/fulls/PR&F/c.jpg" data-caption="Simulation of planar Reflection and Refraction with different coefficient" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail simulation">
@@ -444,8 +456,8 @@
                 </div>
                 <h3></h3>
               </a>
-              <a style="display:none" data-fancybox="TM2" href="images/fulls/TM2/b.jpg" data-caption="Texture mapping with phong shading scene created with openGL" />
-              <a style="display:none" data-fancybox="TM2" href="images/fulls/TM2/c.jpg" data-caption="Texture mapping with phong shading scene created with openGL" />
+              <a style="display:none" data-fancybox="TM2" href="images/fulls/TM2/b.jpg" data-caption="Texture mapping with phong shading scene created with openGL" ></a>
+              <a style="display:none" data-fancybox="TM2" href="images/fulls/TM2/c.jpg" data-caption="Texture mapping with phong shading scene created with openGL" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail cowork">
@@ -456,15 +468,15 @@
                   <span>Multiplayer Tank-battle PC game</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="Tank" href="https://youtu.be/qXYTnR2dRdw" data-caption="Game record video" />
-              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/b.jpg" data-caption="Game Scene in Wave08" />
-              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/c.jpg" data-caption="Game Scene in different map in Wave08" />
-              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/d.jpg" data-caption="Game Scene in Wave17" />
-              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/e.jpg" data-caption="Game Scene in Wave01" />
-              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/f.jpg" data-caption="Game Over Scene with explosion effect" />
-              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/g.jpg" data-caption="Map/Scene construction" />
-              <a style="display:none" data-fancybox="Tank" data-height="500" data-width="350" href="images/fulls/Tank/h.jpg" data-caption="Characters collcection in game" />
-              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/a.pdf" data-caption="Project Report" />
+              <a style="display:none" data-fancybox="Tank" href="https://youtu.be/qXYTnR2dRdw" data-caption="Game record video" ></a>
+              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/b.jpg" data-caption="Game Scene in Wave08" ></a>
+              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/c.jpg" data-caption="Game Scene in different map in Wave08" ></a>
+              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/d.jpg" data-caption="Game Scene in Wave17" ></a>
+              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/e.jpg" data-caption="Game Scene in Wave01" >
+              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/f.jpg" data-caption="Game Over Scene with explosion effect" ></a>
+              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/g.jpg" data-caption="Map/Scene construction" ></a>
+              <a style="display:none" data-fancybox="Tank" data-height="500" data-width="350" href="images/fulls/Tank/h.jpg" data-caption="Characters collcection in game" ></a>
+              <a style="display:none" data-fancybox="Tank" href="images/fulls/Tank/a.pdf" data-caption="Project Report" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail cowork">
@@ -485,7 +497,7 @@
                   <span>Comparison & Match</span>
                 </div>
               </a>
-              <a style="display:none" data-fancybox="VideoQuery" href="images/fulls/VideoQuery/a.pdf" data-caption="Spec" />
+              <a style="display:none" data-fancybox="VideoQuery" href="images/fulls/VideoQuery/a.pdf" data-caption="Spec" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail cowork">
@@ -496,8 +508,8 @@
                   <span>Frontend & Backend Developer</span>
                 </div>
             </a>
-            <a style="display:none" data-fancybox="FoodPon" href="images/fulls/FoodPon/b.jpg" data-caption="Main Page" />
-            <a style="display:none" data-fancybox="FoodPon" href="images/fulls/FoodPon/c.jpg" data-caption="Comment system" />
+            <a style="display:none" data-fancybox="FoodPon" href="images/fulls/FoodPon/b.jpg" data-caption="Main Page" ></a>
+            <a style="display:none" data-fancybox="FoodPon" href="images/fulls/FoodPon/c.jpg" data-caption="Comment system" ></a>
             </div>
 
             <div class="col-lg-4 col-md-6 portfolio-thumbnail cowork">
@@ -661,7 +673,6 @@
   </div>
   <!-- start sectoion contact -->
 
-
   <!-- start section footer -->
   <div id="footer" class="text-center">
     <div class="container">
@@ -673,7 +684,6 @@
           <li><a target="_blank" href="https://www.facebook.com/lichechien"><i class="ion-social-facebook"></i></a></li>
           <li><a target="_blank" href="https://instagram.com/chien_rc"><i class="ion-social-instagram"></i></a></li>
         </ul>
-
       </div>
     </div>
   </div>
@@ -706,7 +716,6 @@
   
     gtag('config', 'UA-130572589-1');
   </script>
-
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>

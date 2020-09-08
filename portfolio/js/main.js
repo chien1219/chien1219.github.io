@@ -3,10 +3,63 @@
   // ========================================================================= //
   new WOW().init();
 
+  // ========================================================================= //
+  //  //Video Background
+  // ========================================================================= //
+
+  function scaleVideoContainer() {
+    var height = $(window).height();
+    var unitHeight = parseInt(height) + 'px';
+    $('.video-container').css('height',unitHeight);
+  }
+
+  function initBannerVideoSize(element){
+    $(element).each(function(){
+      $(this).data('height', $(this).height());
+      $(this).data('width', $(this).width());
+    });
+
+    scaleBannerVideoSize(element);
+  }
+
+  function scaleBannerVideoSize(element) {
+
+    var windowWidth = $(window).width();
+
+    $(element).each(function(){
+
+      $(this).width(windowWidth);
+
+      if(windowWidth < 1440){
+
+        $('.video-container').hide();
+        $('#header').show();
+      }
+      else if(windowWidth >= 1440){
+
+        $('.video-container').show();
+        $('#header').hide();
+    }
+      $('.video-container video').addClass('fadeIn animated');
+    });
+  }
+
 /*global $, jQuery, alert*/
 $(document).ready(function() {
 
   'use strict';
+
+  // ========================================================================= //
+  //  //Video Background
+  // ========================================================================= //
+
+    scaleVideoContainer();
+    initBannerVideoSize('.video-container video');
+
+    $(window).on('resize', function() {
+      scaleVideoContainer();
+      scaleBannerVideoSize('.video-container video');
+    });
 
   // ========================================================================= //
   //  //SMOOTH SCROLL
