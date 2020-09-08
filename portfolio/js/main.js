@@ -44,22 +44,18 @@
     });
   }
 
+  scaleVideoContainer();
+  initBannerVideoSize('.video-container video');
+
+  $(window).on('resize', function() {
+    scaleVideoContainer();
+    scaleBannerVideoSize('.video-container video');
+  });
+
 /*global $, jQuery, alert*/
 $(document).ready(function() {
 
   'use strict';
-
-  // ========================================================================= //
-  //  //Video Background
-  // ========================================================================= //
-
-    scaleVideoContainer();
-    initBannerVideoSize('.video-container video');
-
-    $(window).on('resize', function() {
-      scaleVideoContainer();
-      scaleBannerVideoSize('.video-container video');
-    });
 
   // ========================================================================= //
   //  //SMOOTH SCROLL
