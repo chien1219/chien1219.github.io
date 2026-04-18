@@ -1,0 +1,4 @@
+# Keep these out of the repo — source has all secrets in plaintext
+index.source.html
+encrypt-epp.mjs
+decrypt-source.mjs
