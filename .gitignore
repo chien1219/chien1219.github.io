@@ -1,0 +1,4 @@
+# EPP source files (contain unencrypted content and encryption password)
+epp/index.source.html
+epp/encrypt-epp.mjs
+epp/decrypt-source.mjs
