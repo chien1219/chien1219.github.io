@@ -28,18 +28,12 @@
 
     async function tryDecrypt() {
       const pw = input.value.toLowerCase();
-      const payloadEl = document.getElementById("encrypted-payload");
-
-      if (!payloadEl) {
-        input.classList.add("shake");
-        error.textContent = "Page not configured.";
-        setTimeout(() => input.classList.remove("shake"), 400);
-        return;
-      }
 
       try {
         if (!crypto.subtle) throw new Error("Secure context required. Please use HTTPS or localhost.");
-        const { salt, iv, data } = JSON.parse(payloadEl.textContent);
+        const resp = await fetch("payload.json");
+        if (!resp.ok) throw new Error("Failed to load encrypted data.");
+        const { salt, iv, data } = await resp.json();
         const fromB64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 
         const keyMaterial = await crypto.subtle.importKey(
@@ -63,8 +57,6 @@
         const script = document.createElement("script");
         script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
         script.onload = () => {
-          // Remove encrypted payload
-          payloadEl.remove();
           // Inject decrypted HTML + scripts into body
           const container = document.createElement("div");
           container.innerHTML = html;
@@ -76,7 +68,7 @@
               document.body.appendChild(s);
               container.removeChild(container.firstChild);
             } else {
-              document.body.insertBefore(container.firstChild, document.querySelector("footer")?.nextSibling || null);
+              document.body.appendChild(container.firstChild);
             }
           }
           // Hide password overlay
