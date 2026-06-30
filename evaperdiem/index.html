@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Per Diem 計算機</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 36px 40px;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1d1d1f;
+      margin-bottom: 24px;
+    }
+
+    .rate-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: #6e6e73;
+    }
+
+    .rate-badge {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .rate-badge.loading {
+      background: #f0f0f0;
+      color: #999;
+    }
+
+    .rate-badge.error {
+      background: #fdecea;
+      color: #c62828;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1d1d1f;
+      margin-bottom: 6px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid #d2d2d7;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #1d1d1f;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="number"]:focus {
+      border-color: #0071e3;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      background: #0071e3;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.15s;
+    }
+
+    button:hover { background: #0077ed; }
+    button:active { background: #005bb5; }
+
+    .results {
+      margin-top: 24px;
+      border-top: 1px solid #e5e5ea;
+      padding-top: 20px;
+      display: none;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .result-label {
+      font-size: 14px;
+      color: #6e6e73;
+    }
+
+    .result-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1d1d1f;
+    }
+
+    .result-value.highlight {
+      color: #1d1d1f;
+      font-size: 20px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e5ea;
+      margin: 12px 0;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .total-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .total-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0071e3;
+    }
+
+    .error-msg {
+      color: #c62828;
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Per Diem 計算機</h1>
+
+    <div class="rate-row">
+      <span>USD → NTD 匯率：</span>
+      <span class="rate-badge loading" id="rate-badge">載入中…</span>
+      <button id="refresh-rate" style="width:auto;padding:3px 10px;font-size:12px;font-weight:500;margin-top:0;background:#f0f0f0;color:#333;border-radius:20px;" onclick="fetchRate()">↻</button>
+    </div>
+
+    <div class="field">
+      <label>歐美頗定（小時）</label>
+      <input type="number" id="us-days" min="0" step="0.5" placeholder="0">
+    </div>
+
+    <div class="field">
+      <label>其他頗定（小時）</label>
+      <input type="number" id="other-days" min="0" step="0.5" placeholder="0">
+    </div>
+
+    <div class="field">
+      <label>飛行時數（小時）</label>
+      <input type="number" id="flight-hours" min="0" step="0.5" placeholder="0">
+    </div>
+
+    <button onclick="calculate()">計算</button>
+    <div class="error-msg" id="error-msg"></div>
+
+    <div class="results" id="results">
+      <div class="result-row">
+        <span class="result-label">Per Diem</span>
+        <span class="result-value highlight" id="perdiem-value">—</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">飛行津貼</span>
+        <span class="result-value" id="flight-value">—</span>
+      </div>
+      <div class="divider"></div>
+      <div class="total-row">
+        <span class="total-label">合計</span>
+        <span class="total-value" id="total-value">—</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let usdRate = null;
+
+    async function fetchRate() {
+      const badge = document.getElementById('rate-badge');
+      badge.textContent = '載入中…';
+      badge.className = 'rate-badge loading';
+      try {
+        const res = await fetch('https://open.er-api.com/v6/latest/USD');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        usdRate = data.rates.TWD;
+        badge.textContent = usdRate.toFixed(2);
+        badge.className = 'rate-badge';
+      } catch (e) {
+        badge.textContent = '載入失敗';
+        badge.className = 'rate-badge error';
+        usdRate = null;
+      }
+    }
+
+    function calcFlightAllowance(t) {
+      const base = 150;
+      if (t <= 60) {
+        return t * base * 1.25;
+      } else if (t <= 75) {
+        return t * base * 1.25 + (t - 60) * 1.5 * base;
+      } else if (t <= 85) {
+        return t * base * 1.25 + 15 * 1.5 * base + (t - 75) * 1.75 * base;
+      } else if (t <= 90) {
+        return t * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + (t - 85) * 2.5 * base;
+      } else if (t <= 100) {
+        return t * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + 5 * 2.5 * base + (t - 90) * 3 * base;
+      } else {
+        return t * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + 5 * 2.5 * base + 10 * 3 * base + (t - 100) * 4 * base;
+      }
+    }
+
+    function fmt(n) {
+      return 'NT$ ' + Math.round(n).toLocaleString('zh-TW');
+    }
+
+    function calculate() {
+      const errEl = document.getElementById('error-msg');
+      errEl.style.display = 'none';
+
+      if (usdRate === null) {
+        errEl.textContent = '無法取得匯率，請稍後重試。';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      const usDays = parseFloat(document.getElementById('us-days').value) || 0;
+      const otherDays = parseFloat(document.getElementById('other-days').value) || 0;
+      const flightHours = parseFloat(document.getElementById('flight-hours').value) || 0;
+
+      const perdiem = usDays * 4 * usdRate + otherDays * 3 * usdRate;
+      const flightAllowance = calcFlightAllowance(flightHours);
+      const total = perdiem + flightAllowance;
+
+      document.getElementById('perdiem-value').textContent = fmt(perdiem);
+      document.getElementById('flight-value').textContent = fmt(flightAllowance);
+      document.getElementById('total-value').textContent = fmt(total);
+
+      document.getElementById('results').style.display = 'block';
+    }
+
+    // Allow Enter key to trigger calculation
+    document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+
+    fetchRate();
+  </script>
+</body>
+</html>
