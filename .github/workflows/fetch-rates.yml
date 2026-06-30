@@ -2,7 +2,7 @@ name: Fetch CBC Exchange Rates
 
 on:
   schedule:
-    - cron: '0 9 * * 1-5'  # 9:00 UTC = 17:00 UTC+8, weekdays only
+    - cron: '0 9 1 * *'  # 9:00 UTC = 17:00 UTC+8, first day of each month
   workflow_dispatch:
 
 jobs:
