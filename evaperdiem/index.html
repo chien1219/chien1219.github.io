@@ -294,7 +294,7 @@
       badge.className = 'rate-badge loading';
       detail.textContent = '';
       try {
-        const res = await fetch('https://cpx.cbc.gov.tw/API/DataAPI/Get?FileName=BP01D01');
+        const res = await fetch('rates.json');
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const json = await res.json();
         allRates = parseRateData(json.data.dataSets);
