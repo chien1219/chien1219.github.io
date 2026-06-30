@@ -30,16 +30,56 @@
       font-size: 22px;
       font-weight: 700;
       color: #1d1d1f;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+    }
+
+    .month-field {
+      margin-bottom: 20px;
+    }
+
+    .month-field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1d1d1f;
+      margin-bottom: 6px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid #d2d2d7;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #1d1d1f;
+      background: #fff;
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+
+    select:focus {
+      border-color: #0071e3;
     }
 
     .rate-row {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 28px;
+      margin-bottom: 6px;
       font-size: 13px;
       color: #6e6e73;
+    }
+
+    .rate-detail {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 24px;
+      min-height: 18px;
     }
 
     .rate-badge {
@@ -171,11 +211,16 @@
   <div class="card">
     <h1>Per Diem 計算機</h1>
 
-    <div class="rate-row">
-      <span>USD → NTD 匯率：</span>
-      <span class="rate-badge loading" id="rate-badge">載入中…</span>
-      <button id="refresh-rate" style="width:auto;padding:3px 10px;font-size:12px;font-weight:500;margin-top:0;background:#f0f0f0;color:#333;border-radius:20px;" onclick="fetchRate()">↻</button>
+    <div class="month-field">
+      <label>月份</label>
+      <select id="month-picker" onchange="onMonthChange()"></select>
     </div>
+
+    <div class="rate-row">
+      <span>USD → NTD 均匯：</span>
+      <span class="rate-badge loading" id="rate-badge">載入中…</span>
+    </div>
+    <div class="rate-detail" id="rate-detail"></div>
 
     <div class="field">
       <label>歐美頗定（小時）</label>
@@ -215,20 +260,72 @@
   <script>
     let usdRate = null;
 
-    async function fetchRate() {
+    function buildMonthOptions() {
+      const sel = document.getElementById('month-picker');
+      const now = new Date();
+      for (let i = 0; i < 24; i++) {
+        const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        const y = d.getFullYear(), m = d.getMonth() + 1;
+        const opt = document.createElement('option');
+        opt.value = `${y}-${m}`;
+        opt.textContent = `${y} 年 ${m} 月${i === 0 ? '（本月）' : ''}`;
+        sel.appendChild(opt);
+      }
+    }
+
+    function toDateStr(year, month, day) {
+      return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    }
+
+    function getLastDayOfMonth(year, month) {
+      return new Date(year, month, 0).getDate();
+    }
+
+    async function fetchRateOnDate(dateStr) {
+      const cdnUrl = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${dateStr}/v1/currencies/usd.json`;
+      const fallbackUrl = `https://${dateStr}.currency-api.pages.dev/v1/currencies/usd.json`;
+      let res = await fetch(cdnUrl);
+      if (!res.ok) res = await fetch(fallbackUrl);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      return data.usd.twd;
+    }
+
+    async function onMonthChange() {
+      const sel = document.getElementById('month-picker');
+      const [year, month] = sel.value.split('-').map(Number);
       const badge = document.getElementById('rate-badge');
+      const detail = document.getElementById('rate-detail');
       badge.textContent = '載入中…';
       badge.className = 'rate-badge loading';
+      detail.textContent = '';
+      usdRate = null;
+
+      const now = new Date();
+      const isCurrentMonth = (year === now.getFullYear() && month === now.getMonth() + 1);
+
+      const firstDateStr = toDateStr(year, month, 1);
+      let lastDateStr;
+      if (isCurrentMonth) {
+        const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+        lastDateStr = toDateStr(yesterday.getFullYear(), yesterday.getMonth() + 1, yesterday.getDate());
+      } else {
+        lastDateStr = toDateStr(year, month, getLastDayOfMonth(year, month));
+      }
+
       try {
-        const res = await fetch('https://open.er-api.com/v6/latest/USD');
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        usdRate = data.rates.TWD;
-        badge.textContent = usdRate.toFixed(2);
+        const [rate1, rate2] = await Promise.all([
+          fetchRateOnDate(firstDateStr),
+          fetchRateOnDate(lastDateStr)
+        ]);
+        usdRate = (rate1 + rate2) / 2;
+        badge.textContent = usdRate.toFixed(4);
         badge.className = 'rate-badge';
+        detail.textContent = `${firstDateStr}: ${rate1.toFixed(4)}　${lastDateStr}: ${rate2.toFixed(4)}　平均: ${usdRate.toFixed(4)}`;
       } catch (e) {
         badge.textContent = '載入失敗';
         badge.className = 'rate-badge error';
+        detail.textContent = '';
         usdRate = null;
       }
     }
@@ -236,17 +333,17 @@
     function calcFlightAllowance(t) {
       const base = 150;
       if (t <= 60) {
-        return t * base * 1.25;
+        return 60 * base * 1.25;
       } else if (t <= 75) {
-        return t * base * 1.25 + (t - 60) * 1.5 * base;
+        return 60 * base * 1.25 + (t - 60) * 1.5 * base;
       } else if (t <= 85) {
-        return t * base * 1.25 + 15 * 1.5 * base + (t - 75) * 1.75 * base;
+        return 60 * base * 1.25 + 15 * 1.5 * base + (t - 75) * 1.75 * base;
       } else if (t <= 90) {
-        return t * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + (t - 85) * 2.5 * base;
+        return 60 * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + (t - 85) * 2.5 * base;
       } else if (t <= 100) {
-        return t * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + 5 * 2.5 * base + (t - 90) * 3 * base;
+        return 60 * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + 5 * 2.5 * base + (t - 90) * 3 * base;
       } else {
-        return t * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + 5 * 2.5 * base + 10 * 3 * base + (t - 100) * 4 * base;
+        return 60 * base * 1.25 + 15 * 1.5 * base + 10 * 1.75 * base + 5 * 2.5 * base + 10 * 3 * base + (t - 100) * 4 * base;
       }
     }
 
@@ -268,7 +365,7 @@
       const otherDays = parseFloat(document.getElementById('other-days').value) || 0;
       const flightHours = parseFloat(document.getElementById('flight-hours').value) || 0;
 
-      const perdiem = usDays * 4 * usdRate + otherDays * 3 * usdRate;
+      const perdiem = usDays * 4 * usdRate + otherDays * 3.5 * usdRate;
       const flightAllowance = calcFlightAllowance(flightHours);
       const total = perdiem + flightAllowance;
 
@@ -282,7 +379,8 @@
     // Allow Enter key to trigger calculation
     document.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
 
-    fetchRate();
+    buildMonthOptions();
+    onMonthChange();
   </script>
 </body>
 </html>
